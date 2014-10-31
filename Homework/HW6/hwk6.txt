@@ -1,0 +1,103 @@
+; Akiko Iwamizu
+; uni: AMI2119
+; PSET 6: Turing Machine Simulator Instructions
+;
+; Syntax: <current state> <current symbol> <new symbol> <direction> <new state>
+; ';' starts a comment.
+; '*' is a wildcard: it matches any symbol/state when used in the current symbol/state field;
+; it means 'same as current' when used in new symbol/new state field.
+; '_' represents the blank (space) symbol.
+; Symbols must be a single non-whitespace character except ';'.
+;
+
+;Problem 22:
+0 * * * 1
+1 0 0 l 1
+1 1 1 l 2
+2 _ 0 r 3
+2 0 0 l 2
+3 _ 0 l 1
+3 0 0 r 3
+3 1 1 r 3
+
+
+;Problem 25:
+0 * * * 1
+1 _ _ l 9
+1 1 x r 2
+2 _ _ r 3
+2 1 1 r 2
+3 _ _ l 4
+3 1 1 r 3
+3 y 1 l 4
+4 _ _ r 7
+4 1 y l 5
+5 _ _ l 6
+5 1 1 l 5
+6 1 1 l 6
+6 x 1 r 1
+7 _ _ l 8
+; Left unary number is larger
+7 1 _ r 7 
+8 _ _ l 8
+8 1 1 l 8
+8 x 1 l 12
+9 _ _ r 10
+; Right unary number is larger
+9 1 _ l 9 
+10 _ _ r 10
+10 1 1 r 11
+10 y 1 r 12
+11 1 1 r 11
+11 y 1 r 11
+
+
+
+;Problem 27:
+0 * * * 1
+1 1 1 r 2
+2 1 1 r 3
+3 1 0 r 1
+
+
+;Problem 28:
+0 * * * 1
+1 _ _ l 2
+1 0 0 r 1
+1 1 1 r 1
+2 0 1 r 5
+2 1 1 l 3
+3 _ 1 r 4
+3 0 1 r 4
+3 1 1 l 3
+4 1 0 r 4
+
+
+;Problem 32:
+0 * * * 1
+1 0 _ r 2
+1 1 _ r 3
+1 _ _ l 6
+2 0 0 r 2
+2 1 1 r 2
+2 _ _ l 4
+3 0 0 r 3
+3 1 1 r 3
+3 _ _ l 5
+4 0 _ l 8
+4 1 1 l 7
+4 _ _ l 6
+5 0 0 l 7
+5 1 _ l 8
+5 _ _ l 6
+; state 6 halts (Found a palindrome)
+; state 7 halts (Did not find a palindrome)
+8 0 0 l 8
+8 1 1 l 8
+8 _ _ r 1
+
+
+
+
+
+
